@@ -19,7 +19,7 @@ public class USACO {
   public int makelake(String file) {
     File f = new File(file);
     Scanner s = new Scanner(file);
-    while (file.hasNextLine()){
+    while (s.hasNextLine()){
       row++;
       col++;
     }
@@ -34,7 +34,7 @@ public class USACO {
       }
     }
   }
-    
+
 
 
 
