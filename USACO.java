@@ -24,16 +24,17 @@ public class USACO {
       col++;
     }
     int[][] data = new int[row][col];
+
+    private int compare(int data[][]) {
     for (int i = 0; i < row; i++){
       for (int x = 0; x < col; x++){
         if (data[i][x] < data[i + 1][x]){
-          return data[i][x]
-
+          return compare(data[i][x]);
         }
       }
     }
   }
-
+    
 
 
 
