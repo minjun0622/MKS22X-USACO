@@ -5,34 +5,44 @@ private int col;
 private int row;
 private int ele;
 private int number;
+/*
+row = //first int in line.
+col = //second int in line.
+ele = //third int in line.
+number = //fourth int in line.
+*/
 
 
 public class USACO {
-  public static void main(String[] args) {
+   public static int bronze(String filename){
+    File f = new File(filename);
+    Scanner s = new Scanner(f);
+    for (int i = 0; i < 4; i++){
+      //reads through each line.
+      String result;
+      result += s.nextLine();
 
-  }
-
-  public USACO(){
-    makelake(/*file name*/);
-  }
-
-  public int makelake(String file) {
-    File f = new File(file);
-    Scanner s = new Scanner(file);
-    while (s.hasNextLine()){
-      row++;
-      col++;
-    }
-    int[][] data = new int[row][col];
-
-    private int compare(int data[][]) {
-    for (int i = 0; i < row; i++){
-      for (int x = 0; x < col; x++){
-        if (data[i][x] < data[i + 1][x]){
-          return compare(data[i][x]);
-        }
+/*
+  private void subtract(int r, int c) {
+    int count;
+    for (int i = 0; i < 2; i++){
+      if (data[r][c] >data[r + i][c]){
+        data[r][c] = count;
       }
+      else {
+        data[r + i][c] = count;
+      }
+      if (data[r][c] > data[r][c + i]){
+        data[r][c] = count;
+      }
+
     }
+
+  }
+  */
+
+  public static int silver(String filename) {
+
   }
 
 
