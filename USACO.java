@@ -36,9 +36,27 @@ public class USACO {
     for(int i = 0; i < number; i++){
      for (int x = 0; x < 3; x++){
        moves[i][i2] = scan.nextInt();
-       //System.out.println(moves[i][i2]);
+       //System.out.println(moves[i][x]);
      }
    }
+
+   for (int i = 0; i < moves.length; i++){
+    int row = moves[i][0] - 1;
+    int col = moves[i][1] - 1;
+    int subtract = moves[i][2];
+
+    int max = 0;
+
+    for (int i = row; i-row < 3 && i < r; i++){
+      for (int x = col; x-col < 3 && x < c; x++){
+        if (lake[i][x] > max){
+          max = lake[i][x];
+        }
+      }
+    }
+    max -= subtract;
+
+}
 
 
 
