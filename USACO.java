@@ -21,15 +21,15 @@ public class USACO {
 
     int[][] lake = new int[r][c];
 
-    for (int i = 0; i < row; i++){
-      for (int x = 0; x < col; x++){
+    for (int i = 0; i < r; i++){
+      for (int x = 0; x < c; x++){
         lake[i][x] = s.nextInt();
       }
     }
 
-    int[][] moves = new int[number][3];
+    int[][] moves = new int[n][3];
 
-    for(int i = 0; i < number; i++){
+    for(int i = 0; i < n; i++){
      for (int x = 0; x < 3; x++){
        moves[i][x] = s.nextInt();
        System.out.println(moves[i][x]);
@@ -37,14 +37,13 @@ public class USACO {
    }
 
    for (int i = 0; i < moves.length; i++){
-    int row2 = moves[i][0] - 1;
-    int col2 = moves[i][1] - 1;
+    int row = moves[i][0] - 1;
+    int col = moves[i][1] - 1;
     int subtract = moves[i][2];
-
     int max = 0;
 
-    for (int i2 = row2; i2- row2 < 3 && i2 < row; i2++){
-      for (int x2 = col2; x2 -col2 < 3 && x2 < col; x2++){
+    for (int i2 = row; i2- row < 3 && i2 < r; i2++){
+      for (int x2 = col; x2 - col < 3 && x2 < c; x2++){
         if (lake[i2][x2] > max){
           max = lake[i2][x2];
         }
@@ -53,10 +52,10 @@ public class USACO {
 
     max -= subtract;
 
-    for (int i3 = row2; i3 -row2 < 3 && i3 < row; i3++){
-      for (int x3 = col2; x3 -col2 < 3 && x3 < col; x3++){
-        if (lake[i3][x3] > max){
-          lake[i3][x3] = max;
+    for (int i2 = row; i2 - row < 3 && i2 < r; i2++){
+      for (int x2 = col; x2 - col < 3 && x2 < c; x2++){
+        if (lake[i2][x2] > max){
+          lake[i2][x2] = max;
         }
       }
     }
@@ -71,10 +70,10 @@ public class USACO {
 
   int totDepth = 0;
 
-  for (int i = 0; row < lake.length; i++){
-    for (int x = 0; col < lake[0].length; x++){
-      if (ele - lake[i][x] > 0){
-        totDepth += ele - lake[i][x];
+  for (int i = 0; i < lake.length; i++){
+    for (int x = 0; x < lake[0].length; x++){
+      if (e - lake[i][x] > 0){
+        totDepth += e - lake[i][x];
       }
     }
   }
