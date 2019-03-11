@@ -81,4 +81,29 @@ public class USACO {
   return totDepth * 72 * 72;
 }
 
-}
+    public int silver(String filename) throws FileNotFoundException {
+      File f = new File(filename);
+	    Scanner s = new Scanner(f);
+	    int r = s.nextInt();
+	    int c = s.nextInt();
+	    int t = s.nextInt();
+
+	    int[][]board = new int[r][c];
+
+	    for (int i = 0; i < r; i++){
+        String result = s.next();
+        for (int x = 0; x < c; x++){
+          if (result.charAt(x) == '.'){
+            board[i][x] = 0;
+          }
+          else if (result.charAt(x) == '*'){
+            board[i][x] = -1;
+          }
+        }
+      }
+
+
+
+
+
+  }
