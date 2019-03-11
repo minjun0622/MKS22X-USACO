@@ -2,11 +2,6 @@
 import java.io.*;
 
 public class USACO {
-
-  public int col;
-  public int row;
-  public int ele;
-  public int number;
   /*
   row = //first int in line.
   col = //second int in line.
@@ -17,11 +12,11 @@ public class USACO {
     File f = new File(filename);
     Scanner s = new Scanner(f);
 
-    String[] info = scan.nextLine().split(" ");
-    row = Integer.parseInt(RCEN[0]);
-    col = Integer.parseInt(RCEN[1]);
-    ele = Integer.parseInt(RCEN[2]);
-    number = Integer.parseInt(RCEN[3]);
+    String[] info = s.nextLine().split(" ");
+    int row = Integer.parseInt(info[0]);
+    int col = Integer.parseInt(info[1]);
+    int ele = Integer.parseInt(info[2]);
+    int number = Integer.parseInt(info[3]);
 
       int[][] lake = new int[row][col];
 
@@ -55,6 +50,15 @@ public class USACO {
       }
     }
     max -= subtract;
+
+    for (int i = row; i-row < 3 && i < r; i++){
+      for (int x = col; x-col < 3 && x < c; x++){
+        if (lake[i][x] > max){
+          lake[i][x] = max;
+        }
+      }
+    }
+
 
 }
 
