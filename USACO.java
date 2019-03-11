@@ -80,30 +80,73 @@ public class USACO {
 
   return totDepth * 72 * 72;
 }
+public static int silver(String filename) throws FileNotFoundException{
+	int[][] oldNums;
+  int[][] newNums;
+	char [][]data;
 
-    public int silver(String filename) throws FileNotFoundException {
-      File f = new File(filename);
-	    Scanner s = new Scanner(f);
-	    int r = s.nextInt();
-	    int c = s.nextInt();
-	    int t = s.nextInt();
+	int row;
+  int col;
+  int num;
+  int sRow;
+  int sCol;
+  int eRow;
+  int eCol;
 
-	    int[][]board = new int[r][c];
+  File f = new File(filename);
+  Scanner s = new Scanner(f);
 
-	    for (int i = 0; i < r; i++){
+	    row = s.nextInt();
+	    col = s.nextInt();
+	    num= s.nextInt();
+	    map = new char[row][col];
+	    newNums = new int[row][col];
+	    oldNums = new int[row][col];
+
+	    for (int i = 0; i < row; i++){
         String result = s.next();
-        for (int x = 0; x < c; x++){
-          if (result.charAt(x) == '.'){
-            board[i][x] = 0;
+          for(int x = 0; x < col; x++){
+		          map[i][x] = result.charAt(x);
+            }
           }
-          else if (result.charAt(x) == '*'){
-            board[i][x] = -1;
-          }
-        }
-      }
 
+	    sRow = s.nextInt() - 1;
+	    sCol = s.nextInt() - 1;
+	    eRow = s.nextInt() - 1;
+	    eCol = s.nextInt() - 1;
 
+	    oldNums[sRow][sCol] = 1;
 
+	    for(int i = 0; i < num; i++){
+		      for(int x = 0; x < row; x++){
+		    for(int j = 0; j < col; j++){
+			       if (map[x][j] != '*'){
 
+			    int sumN = 0;
 
-  }
+			    if(checker(x-1,j,row,col)){
+            sumN = sumN + oldNums[x-1][j];
+			    }
+			    if(checker(x+1,j,row,col)){
+            sumN = sumN + oldNums[x+1][j];
+			    }
+			    if(checker(x,j-1,row,col)){
+            sumN = sumN + oldNums[x][j-1];
+			    }
+			    if(checker(x,j+1,row,col)){
+            sumN = sumN + oldNums[x][j+1];
+			    }
+			    newNums[x][j] = sumN;
+			}
+		    }
+		}
+		oldNums = newNums;
+		newNums = new int[row][col];
+	    }
+	    return oldNums[eRow][eCol];
+    }
+
+    private static boolean checker(int cR,int cC, int r, int c){
+	     return cR >= 0 && cC >= 0 && cR < r && cC < c;
+    }
+}
