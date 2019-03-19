@@ -83,7 +83,7 @@ public class USACO {
 public static int silver(String filename) throws FileNotFoundException{
 	int[][] oldNums;
   int[][] newNums;
-	char [][]data;
+	char [][] map;
 
 	int row;
   int col;
