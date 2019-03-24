@@ -1,5 +1,6 @@
  import java.util.*;
 import java.io.*;
+import java.util.Scanner;
 
 public class USACO {
   /*
@@ -80,7 +81,8 @@ public class USACO {
 
   return totDepth * 72 * 72;
 }
-public static int silver(String filename) throws FileNotFoundException{
+
+public static int silver(String filename) throws FileNotFoundException {
 	int[][] oldNums;
   int[][] newNums;
 	char [][] map;
@@ -146,7 +148,7 @@ public static int silver(String filename) throws FileNotFoundException{
 	    return oldNums[eRow][eCol];
     }
 
-    private static boolean checker(int cR,int cC, int r, int c){
+  private static boolean checker(int cR,int cC, int r, int c){
 	     return cR >= 0 && cC >= 0 && cR < r && cC < c;
     }
 }
